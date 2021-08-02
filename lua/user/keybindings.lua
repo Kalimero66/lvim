@@ -39,7 +39,7 @@ M.setup = function()
 	--
 	-- 	-- use gx and gy because it doesn't override any of the built in g<character> commands
 	vim.cmd("nnoremap <silent> gx <cmd>lua require'lsp'.PeekDefinition()<CR>")
-	vim.cmd("map <silent> gy :lua vim.lsp.buf.hover()<CR>")
+	vim.cmd("map <silent> K :lua vim.lsp.buf.hover()<CR>")
 	vim.cmd(
 		"nnoremap <silent> [d :lua vim.lsp.diagnostic.goto_prev({popup_opts = {border = lvim.lsp.popup_border}})<CR>"
 	)

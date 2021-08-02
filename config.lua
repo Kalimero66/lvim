@@ -4,10 +4,11 @@
 lvim.debug = true
 lvim.format_on_save = true
 lvim.lint_on_save = true
-vim.cmd("set timeoutlen=1000")
+-- vim.cmd("set timeoutlen=1000")
 vim.cmd("set number")
 vim.cmd("set relativenumber")
 vim.cmd("set hlsearch")
+vim.cmd("set inccommand=nosplit")
 
 vim.opt.wrap = true
 vim.opt.linebreak = true
@@ -41,7 +42,7 @@ require("user.keybindings").setup()
 
 -- whichkey bindings
 -- =========================================
-require("user.whichkey").setup()
+-- require("user.whichkey").setup()
 
 -- calbacks
 -- require("user.callbacks").setup()
