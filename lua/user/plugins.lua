@@ -3,6 +3,27 @@ local M = {}
 M.setup = function()
 	local config = require("user.plugin-configs")
 	lvim.plugins = {
+    { "f-person/git-blame.nvim" },
+    {
+      "windwp/nvim-spectre",
+      event = "BufRead",
+      config = function()
+        require("user.spectre").config()
+      end,
+    },
+    {
+      "folke/zen-mode.nvim",
+      config = function()
+        require("user.zen").config()
+      end,
+    },
+    {
+      "monaqa/dial.nvim",
+      event = "BufRead",
+      config = function()
+        require("user.dial").config()
+      end,
+    },
     { "ekalinin/Dockerfile.vim"},
 		{ "tpope/vim-commentary", keys = "g" },
 		{ "tpope/vim-surround", keys = { "c", "d", "y" }, },
