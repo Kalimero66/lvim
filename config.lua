@@ -21,11 +21,16 @@ vim.opt.wrap = true
 vim.opt.linebreak = true
 vim.opt.list = false
 
-lvim.builtin.dap.active = true
+lvim.builtin.dap.active = false
 lvim.builtin.dashboard.active = true
 lvim.builtin.bufferline.active = true
+lvim.builtin.terminal.active = true
+lvim.builtin.bufferline.active = true
+lvim.builtin.galaxyline.active = true
+lvim.builtin.gitsigns.active = true
+lvim.lsp.default_keybinds = true
+
 lvim.builtin.treesitter.ensure_installed =  {"bash", "go" ,"lua", "python", "javascript", "rust"}
-lvim.builtin.treesitter.ignore_install = { "kotlin" }
 lvim.builtin.treesitter.highlight.enabled = true
 lvim.builtin.nvimtree.auto_open = false
 lvim.builtin.treesitter.highlight.additional_vim_regex_highlighting = false
@@ -33,10 +38,6 @@ lvim.builtin.treesitter.playground.enable = true
 lvim.builtin.treesitter.textsubjects.enable = true
 lvim.builtin.treesitter.textsubjects.keymaps[";"] = "textsubjects-big"
 lvim.builtin.treesitter.textsubjects.keymaps["."] = "textsubjects-smart"
-lvim.builtin.terminal.active = true
-
-
-
 
 -- lvim.builtin.treesitter.indent = { enable = false }
 
