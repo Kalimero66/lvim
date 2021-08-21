@@ -26,7 +26,6 @@ lvim.builtin.dashboard.active = true
 lvim.builtin.bufferline.active = true
 lvim.builtin.terminal.active = true
 lvim.builtin.bufferline.active = true
-lvim.builtin.galaxyline.active = true
 lvim.builtin.gitsigns.active = true
 lvim.lsp.default_keybinds = true
 
