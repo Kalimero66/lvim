@@ -24,6 +24,13 @@ M.setup = function()
         require("user.dial").config()
       end,
     },
+    {
+      "lukas-reineke/indent-blankline.nvim",
+      -- event = "BufReadPre",
+      config = function()
+        require "user.blankline"
+      end,
+    },
     { "ekalinin/Dockerfile.vim"},
 		{ "tpope/vim-commentary", keys = "g" },
 		{ "tpope/vim-surround", keys = { "c", "d", "y" }, },
