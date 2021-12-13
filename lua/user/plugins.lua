@@ -3,6 +3,7 @@ local M = {}
 M.setup = function()
 	local config = require("user.plugin-configs")
 	lvim.plugins = {
+    { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' },
     { "f-person/git-blame.nvim" },
     {
       "windwp/nvim-spectre",
