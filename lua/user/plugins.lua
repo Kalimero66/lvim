@@ -3,7 +3,6 @@ local M = {}
 M.setup = function()
 	local config = require("user.plugin-configs")
 	lvim.plugins = {
-    { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' },
     { "f-person/git-blame.nvim" },
     {
       "windwp/nvim-spectre",
@@ -72,6 +71,13 @@ M.setup = function()
     { 'folke/todo-comments.nvim',
       requires = "nvim-lua/plenary.nvim",
       config = function() require("todo-comments").setup {} end },
+    {
+  "windwp/nvim-spectre",
+  event = "BufRead",
+  config = function()
+    require("spectre").setup()
+  end,
+},
 	}
 end
 
