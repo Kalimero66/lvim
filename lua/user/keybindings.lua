@@ -4,6 +4,12 @@ M.setup = function()
 	-- ========================================
 	-- keymappings
 
+lvim.keys.normal_mode["ma"] = "<cmd>BookmarkAnnotate<cr>"
+lvim.keys.normal_mode["mc"] = "<cmd>BookmarkClear<cr>"
+lvim.keys.normal_mode["mm"] = "<cmd>BookmarkToggle<cr>"
+lvim.keys.normal_mode["mj"] = "<cmd>BookmarkNext<cr>"
+lvim.keys.normal_mode["mk"] = "<cmd>BookmarkPrev<cr>"
+
   -- g mapping
   vim.api.nvim_set_keymap('v', 'gy', ':OSCYank<cr>', {silent = false})
 
@@ -33,6 +39,7 @@ M.setup = function()
   vim.api.nvim_set_keymap('n', '\\l', [[<cmd>:set list!<CR>]], { noremap = true, silent = true })
   vim.api.nvim_set_keymap('n', '\\d', [[<cmd>:lua require'lir.float'.toggle()<CR>]], { noremap = true, silent = true })
   vim.api.nvim_set_keymap('n', '\\g', [[<cmd>:G<CR>]], { noremap = true, silent = true })
+
 
 	-- lvim.lsp.default_keybinds = nil
 	vim.cmd('nnoremap <silent> <leader>y "+y')
@@ -117,6 +124,8 @@ M.setup = function()
   vim.api.nvim_exec([[
     autocmd BufReadPost * if line("'\"") >= 1 && line("'\"") <= line("$") && &ft !~# 'commit' | exe "normal! g`\"" | endif
   ]], false)
+
+
 
 end
 

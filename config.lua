@@ -50,6 +50,19 @@ require("user.plugins").setup()
 require("user.keybindings").setup()
 
 -- Whichkey
+  lvim.builtin.which_key.mappings["m"] = {
+  name = "Replace",
+  a = { "<cmd>BookmarkAnnotate<cr>", "Annotate" },
+  c = { "<cmd>BookmarkClear<cr>", "Clear" },
+  h = { '<cmd>lua require("harpoon.mark").add_file()<cr>', "Harpoon Mark" },
+  u = { '<cmd>lua require("harpoon.ui").toggle_quick_menu()<cr>', "Harpoon Menu" },
+  m = { "<cmd>BookmarkToggle<cr>", "Toggle" },
+  j = { "<cmd>BookmarkNext<cr>", "Next" },
+  k = { "<cmd>BookmarkPrev<cr>", "Prev" },
+  -- q = { "<cmd>BookmarkShowAll<cr>", "Show QF" },
+  s = { "<cmd>lua require('telescope').extensions.vim_bookmarks.all({ hide_filename=false, prompt_title=\"bookmarks\", shorten_path=false })<cr>", "Show All" },
+  x = { "<cmd>BookmarkClearAll<cr>", "Clear All" },
+}
 lvim.builtin.which_key.mappings.l.d = { "<cmd>TroubleToggle<cr>", "Diagnostics" }
 lvim.builtin.which_key.mappings.l.R = { "<cmd>TroubleToggle lsp_references<cr>", "References" }
 lvim.builtin.which_key.mappings.l.o = { "<cmd>SymbolsOutline<cr>", "Outline" }
