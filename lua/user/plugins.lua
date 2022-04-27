@@ -3,6 +3,17 @@ local M = {}
 M.setup = function()
 	local config = require("user.plugin-configs")
 	lvim.plugins = {
+    { "leoluz/nvim-dap-go" ,
+      config = function()
+        require("dap-go").setup()
+      end,
+    },
+    { "rcarriga/nvim-dap-ui", 
+      requires = {"mfussenegger/nvim-dap"} ,
+      config = function()
+        require("dapui").setup()
+      end,
+    },
     { "f-person/git-blame.nvim",
       config = function()
         vim.g.gitblame_enabled = true

@@ -20,8 +20,7 @@ lvim.leader = "space"
 vim.opt.wrap = true
 vim.opt.linebreak = true
 vim.opt.list = false
-
-lvim.builtin.dap.active = false
+lvim.builtin.dap.active = true
 lvim.builtin.bufferline.active = true
 lvim.builtin.terminal.active = true
 lvim.builtin.bufferline.active = true
@@ -66,6 +65,7 @@ lvim.builtin.which_key.mappings.l.R = { "<cmd>TroubleToggle lsp_references<cr>",
 lvim.builtin.which_key.mappings.l.o = { "<cmd>SymbolsOutline<cr>", "Outline" }
 lvim.builtin.which_key.mappings.T.h = { "<cmd>TSHighlightCapturesUnderCursor<cr>", "Highlight" }
 lvim.builtin.which_key.mappings.T.p = { "<cmd>TSPlaygroundToggle<cr>", "Playground" }
+-- lvim.builtin.which_key.mappings.t.d = { "<cmd>:lua require('dap-go').debug_test()<CR>", "Debug Test" }
 lvim.builtin.which_key.mappings["z"] = { "<cmd>ZenMode<cr>", "Zen" }
 lvim.builtin.which_key.mappings["r"] = {
   name = "Replace",
