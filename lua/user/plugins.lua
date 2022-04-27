@@ -3,17 +3,36 @@ local M = {}
 M.setup = function()
 	local config = require("user.plugin-configs")
 	lvim.plugins = {
+    -- Debug Adapter
     { "leoluz/nvim-dap-go" ,
+      requires = { "mfussenegger/nvim-dap" },
+      disable = not lvim.builtin.dap.active,
       config = function()
         require("dap-go").setup()
       end,
     },
-    { "rcarriga/nvim-dap-ui", 
+    { "rcarriga/nvim-dap-ui",
       requires = {"mfussenegger/nvim-dap"} ,
+      ft = { "python", "rust", "go" },
+      event = "BufReadPost",
+      requires = { "mfussenegger/nvim-dap" },
+      disable = not lvim.builtin.dap.active,
       config = function()
         require("dapui").setup()
-      end,
+      end
     },
+    {
+      "RishabhRD/nvim-cheat.sh",
+      requires = "RishabhRD/popfix",
+      config = function()
+        vim.g.cheat_default_window_layout = "vertical_split"
+      end,
+      opt = true,
+      cmd = { "Cheat", "CheatWithoutComments", "CheatList", "CheatListWithoutComments" },
+      keys = "<leader>?",
+      -- disable = not lvim.builtin.cheat.active,
+    },
+    -- =====================================================================
     { "f-person/git-blame.nvim",
       config = function()
         vim.g.gitblame_enabled = true
@@ -21,12 +40,25 @@ M.setup = function()
         vim.g.gitblame_highlight_group = "LineNr"
       end,
     },
+    -- Replace  Globally
     {
       "windwp/nvim-spectre",
       event = "BufRead",
       config = function()
         require("user.spectre").config()
       end,
+    },
+    {"simrat39/symbols-outline.nvim",
+      setup = function()
+        require("user.symbols-outline").config()
+      end,
+      event = "BufReadPost",
+    },
+    {"kdheepak/lazygit.nvim", cmd = "LazyGit", },
+    {"ojroques/vim-oscyank",
+        config = function()
+          vim.g.oscyank_term = 'tmux'
+        end
     },
     {
       "folke/zen-mode.nvim",
@@ -43,10 +75,13 @@ M.setup = function()
     },
     {
       "lukas-reineke/indent-blankline.nvim",
-      -- event = "BufReadPre",
-      config = function()
-        require "user.blankline"
+      setup = function()
+        vim.g.indent_blankline_char = "▏"
       end,
+      config = function()
+        require("user.indent-blankline").config()
+      end,
+      event = "BufRead",
     },
     { "ekalinin/Dockerfile.vim"},
 		{ "tpope/vim-commentary", keys = "g" },
@@ -69,18 +104,17 @@ M.setup = function()
 				"Gedit",
 			},
 		},
-    { "simrat39/symbols-outline.nvim", },
-		{ "sindrets/diffview.nvim",
-			cmd = { "DiffviewOpen", "DiffViewClose", "DiffviewToggleFiles", "DiffviewFocusFiles", "DiffviewRefresh" },
-      config = config.diffview, },
-    { "tamago324/lir.nvim", requires = "nvim-lua/plenary.nvim", 
-      config = config.lir},
     {"kdheepak/lazygit.nvim", cmd = "LazyGit", },
     {"ojroques/vim-oscyank",
         config = function()
           vim.g.oscyank_term = 'tmux'
         end
     },
+		{ "sindrets/diffview.nvim",
+			cmd = { "DiffviewOpen", "DiffViewClose", "DiffviewToggleFiles", "DiffviewFocusFiles", "DiffviewRefresh" },
+      config = config.diffview, },
+    { "tamago324/lir.nvim", requires = "nvim-lua/plenary.nvim",
+      config = config.lir},
     {"ray-x/lsp_signature.nvim",
         config = function() require"lsp_signature".on_attach() end,
         event = "InsertEnter" },
@@ -118,6 +152,13 @@ M.setup = function()
     },
     {
       'tom-anders/telescope-vim-bookmarks.nvim'
+    },
+    {
+      'ntpeters/vim-better-whitespace',
+        config = function()
+          vim.g.better_whitespace_enabled = 1
+          vim.g.strip_whitespace_on_save = 1
+        end,
     }
 	}
 end

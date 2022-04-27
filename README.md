@@ -3,7 +3,7 @@
 
 # Setup
 
-## Script to reset existing configuration 
+## Script to reset existing configuration
 
 ```
 cat << EOF > ~/reset-lvim.sh

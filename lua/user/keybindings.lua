@@ -37,9 +37,14 @@ lvim.keys.normal_mode["mk"] = "<cmd>BookmarkPrev<cr>"
   vim.api.nvim_set_keymap('n', '\\ca', [[<cmd>lua vim.lsp.buf.code_action()<CR>]], { noremap = true, silent = true })
   vim.api.nvim_set_keymap('n', '\\a', [[<C-^>]], { noremap = true, silent = true })
   vim.api.nvim_set_keymap('n', '\\l', [[<cmd>:set list!<CR>]], { noremap = true, silent = true })
-  vim.api.nvim_set_keymap('n', '\\d', [[<cmd>:lua require'lir.float'.toggle()<CR>]], { noremap = true, silent = true })
   vim.api.nvim_set_keymap('n', '\\g', [[<cmd>:G<CR>]], { noremap = true, silent = true })
-
+  vim.keymaps.set("n", '\\d',  [[<cmd>:lua require('dap').setup()<CR>]])
+  vim.keymaps.set("n", "<F5>",  [[<cmd>lua require('dap').continue()<CR>]])
+  vim.keymaps.set("n", "<F6>",  [[<cmd:lua require('dap-go').debug_test()<CR>]])
+  vim.keymaps.set("n", "<F7>",  [[<cmd:lua require('dapui').setup()<CR>]])
+  vim.keymaps.set("n", "<F8>",  [[<cmd:lua require('dapui').toggle()<CR>]])
+  vim.keymaps.set("n", "<F10>", [[<cmd:lua require'dap'.step_over()<CR>]])
+  vim.keymaps.set("n", "<F11>", [[<cmd:lua require'dap'.step_into()<CR>]])
 
 	-- lvim.lsp.default_keybinds = nil
 	vim.cmd('nnoremap <silent> <leader>y "+y')
@@ -50,26 +55,7 @@ lvim.keys.normal_mode["mk"] = "<cmd>BookmarkPrev<cr>"
 	vim.cmd(
 		"nnoremap <silent> gl <cmd>lua vim.lsp.diagnostic.show_line_diagnostics({ show_header = false, border = 'single' })<CR>"
 	)
-	--
-	-- 	-- use gx and gy because it doesn't override any of the built in g<character> commands
-	vim.cmd("nnoremap <silent> gx <cmd>lua require'lsp'.PeekDefinition()<CR>")
-	vim.cmd("map <silent> K :lua vim.lsp.buf.hover()<CR>")
-	vim.cmd(
-		"nnoremap <silent> [d :lua vim.lsp.diagnostic.goto_prev({popup_opts = {border = lvim.lsp.popup_border}})<CR>"
-	)
-	vim.cmd(
-		"nnoremap <silent> ]d :lua vim.lsp.diagnostic.goto_next({popup_opts = {border = lvim.lsp.popup_border}})<CR>"
-	)
-	vim.cmd('command! -nargs=0 LspVirtualTextToggle lua require("lsp/virtual_text").toggle()')
 
-	-- F12 toggles relativenumber
-	vim.api.nvim_set_keymap("n", "<F12>", ":set relativenumber!<CR>", { noremap = true, silent = true })
-
-	-- gb triggers Go-To-Buffer
-	vim.api.nvim_set_keymap("n", "gb", "<cmd>BufferPick<CR>", { noremap = true, silent = true })
-
-	-- run a test
-	vim.api.nvim_set_keymap("n", "<F6>", ":!yarn test<CR>", { noremap = true, silent = true })
 
 	-- format with prettier
 	-- vim.api.nvim_set_keymap("n", "<F7>", ":!prettier --stdin-filepath % | e!<cr>", { noremap = true, silent = true })
