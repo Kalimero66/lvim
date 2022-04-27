@@ -30,14 +30,14 @@ chmod +x ~/reset-lvim.sh
 ```
 ## Script to install lvim script
 ```
-cat <<EOF > $(HOME)/.local/bin/lvim
+cat <<EOF > ${HOME}/bin/lvim
 #!/bin/sh
 
 export LUNARVIM_CONFIG_DIR=\${HOME}/.config/lvim
 export LUNARVIM_RUNTIME_DIR=\${HOME}/.local/share/lunarvim
 exec nvim -u "\${HOME}/.local/share/lunarvim/lvim/init.lua" "\$@"
 EOF
-chmod +x /home/pedro/.local/bin/lvim
+chmod +x ${HOME}/bin/lvim
 ```
 
 ## Clone lvim configuration files
