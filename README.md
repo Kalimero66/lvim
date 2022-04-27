@@ -44,3 +44,60 @@ chmod +x /home/pedro/.local/bin/lvim
 ```
 git clone --depth 1 git@github.com:PellePedro/lvim.git ~/.config/lvim
 ```
+
+# Tools
+
+## Lazygit
+```
+git clone https://github.com/jesseduffield/lazygit.git
+cd lazygit
+go install
+```
+
+## Delta (git diff)
+```
+curl -L -o git-delta_0.12.1_amd64.deb https://github.com/dandavison/delta/releases/download/0.12.1/git-delta_0.12.1_amd64.deb
+sudo dpkg -i git-delta_0.12.1_amd64.deb
+
+```
+
+## Configuration
+
+### Delta
+```
+add delta to ~/.gitconfig
+
+[core]
+    pager = delta --side-by-side -w ${FZF_PREVIEW_COLUMNS:-$COLUMNS}
+
+[pager]
+  diff = delta --side-by-side -w ${FZF_PREVIEW_COLUMNS:-$COLUMNS}
+  log = delta --side-by-side -w ${FZF_PREVIEW_COLUMNS:-$COLUMNS}
+  reflog = delta --side-by-side -w ${FZF_PREVIEW_COLUMNS:-$COLUMNS}
+  show = delta --side-by-side -w ${FZF_PREVIEW_COLUMNS:-$COLUMNS}
+
+[core]
+  pager = delta
+
+[interactive]
+  diffFilter = delta --color-only
+
+[delta]
+  side-by-side = true
+
+```
+
+### Lazygit
+```
+
+~/.config/jesseduffield/lazygit/config.yml
+keybinding:
+  universial:
+    return 'c-\'
+git:
+  paging:
+    colorArg: never
+    pager: delta --dark --paging=never
+
+```
+

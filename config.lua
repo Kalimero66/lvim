@@ -30,7 +30,6 @@ lvim.lsp.default_keybinds = true
 
 lvim.builtin.treesitter.ensure_installed =  {"bash", "go" ,"lua", "python", "javascript", "rust"}
 lvim.builtin.treesitter.highlight.enabled = true
--- lvim.builtin.nvimtree.update_to_buf_dir.enable = false
 lvim.builtin.treesitter.highlight.additional_vim_regex_highlighting = false
 lvim.builtin.treesitter.playground.enable = true
 lvim.builtin.treesitter.textsubjects.enable = true
