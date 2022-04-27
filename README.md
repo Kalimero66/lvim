@@ -5,6 +5,7 @@
 
 ## Script to reset existing configuration 
 
+```
 cat << EOF > reset-lvim.sh
 #!/bin/bash
 
@@ -25,10 +26,9 @@ git clone --depth 1 https://github.com/wbthomason/packer.nvim \
 
 git clone --branch "$LV_BRANCH" --depth 1 "https://github.com/${LV_REMOTE}" "$LUNARVIM_RUNTIME_DIR/lvim"
 EOF
-
-
+```
 ## Script to install lvim script
-
+```
 cat <<EOF > /home/pedro/.local/bin/lvim
 #!/bin/sh
 
@@ -36,6 +36,7 @@ export LUNARVIM_CONFIG_DIR=${HOME}/.config/lvim
 export LUNARVIM_RUNTIME_DIR=${HOME}/.local/share/lunarvim
 exec nvim -u "${HOME}/.local/share/lunarvim/lvim/init.lua" "$@"
 EOF
+```
 
 ## Clone lvim configuration files
 ```
