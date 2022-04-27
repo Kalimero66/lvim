@@ -30,7 +30,7 @@ chmod +x ~/reset-lvim.sh
 ```
 ## Script to install lvim script
 ```
-cat <<EOF > /home/pedro/.local/bin/lvim
+cat <<EOF > $(HOME)/.local/bin/lvim
 #!/bin/sh
 
 export LUNARVIM_CONFIG_DIR=\${HOME}/.config/lvim
