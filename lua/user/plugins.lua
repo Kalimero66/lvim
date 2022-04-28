@@ -21,6 +21,19 @@ M.setup = function()
         require("dapui").setup()
       end
     },
+    {"simrat39/symbols-outline.nvim",
+      setup = function()
+        require("user.symbols-outline").config()
+      end,
+      event = "BufReadPost",
+    },
+    {
+      "simrat39/rust-tools.nvim",
+      config = function()
+        require("user.rust-tools").config()
+      end,
+      ft = { "rust", "rs" },
+    },
     {
       "RishabhRD/nvim-cheat.sh",
       requires = "RishabhRD/popfix",
@@ -48,11 +61,12 @@ M.setup = function()
         require("user.spectre").config()
       end,
     },
-    {"simrat39/symbols-outline.nvim",
-      setup = function()
-        require("user.symbols-outline").config()
+    {  -- jump
+      "ggandor/lightspeed.nvim",
+      config = function()
+        require("user.lightspeed").config()
       end,
-      event = "BufReadPost",
+      -- disable = lvim.builtin.motion_provider ~= "lightspeed",
     },
     {"kdheepak/lazygit.nvim", cmd = "LazyGit", },
     {"ojroques/vim-oscyank",
@@ -105,11 +119,6 @@ M.setup = function()
 			},
 		},
     {"kdheepak/lazygit.nvim", cmd = "LazyGit", },
-    {"ojroques/vim-oscyank",
-        config = function()
-          vim.g.oscyank_term = 'tmux'
-        end
-    },
 		{ "sindrets/diffview.nvim",
 			cmd = { "DiffviewOpen", "DiffViewClose", "DiffviewToggleFiles", "DiffviewFocusFiles", "DiffviewRefresh" },
       config = config.diffview, },
