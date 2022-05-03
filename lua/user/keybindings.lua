@@ -34,8 +34,9 @@ lvim.keys.normal_mode["mk"] = "<cmd>BookmarkPrev<cr>"
   vim.api.nvim_set_keymap('n', '\\r',  [[<cmd>lua vim.lsp.buf.rename()<CR>]], { noremap = true, silent = true })
   vim.api.nvim_set_keymap('v', '\\y',  [[<cmd>:OSCYank<CR>]], { noremap = true, silent = true })
   vim.api.nvim_set_keymap('n', '\\t',  [[<cmd>:TroubleToggle<CR>]], { noremap = true, silent = true })
-  vim.api.nvim_set_keymap('n', '\\ca', [[<cmd>lua vim.lsp.buf.code_action()<CR>]], { noremap = true, silent = true })
-  vim.api.nvim_set_keymap('n', '\\a', [[<C-^>]], { noremap = true, silent = true })
+
+  vim.api.nvim_set_keymap('n', '\\a', [[<cmd>lua vim.lsp.buf.code_action()<CR>]], { noremap = true, silent = true })
+  -- vim.api.nvim_set_keymap('n', '\\a', [[<C-^>]], { noremap = true, silent = true })
   vim.api.nvim_set_keymap('n', '\\l', [[<cmd>:set list!<CR>]], { noremap = true, silent = true })
   vim.api.nvim_set_keymap('n', '\\g', [[<cmd>:G<CR>]], { noremap = true, silent = true })
   vim.api.nvim_set_keymap("n", '\\d',   [[<cmd>lua require('dapui').toggle()<CR>]], { noremap = true, silent = true } )

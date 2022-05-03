@@ -61,13 +61,13 @@ M.setup = function()
         require("user.spectre").config()
       end,
     },
-    {  -- jump
-      "ggandor/lightspeed.nvim",
-      config = function()
-        require("user.lightspeed").config()
-      end,
-      -- disable = lvim.builtin.motion_provider ~= "lightspeed",
-    },
+    -- {  -- jump
+    --   "ggandor/lightspeed.nvim",
+    --   config = function()
+    --     require("user.lightspeed").config()
+    --   end,
+    --   -- disable = lvim.builtin.motion_provider ~= "lightspeed",
+    -- },
     {"kdheepak/lazygit.nvim", cmd = "LazyGit", },
     {"ojroques/vim-oscyank",
         config = function()
